@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "KunruiWang-Takehome.html",
+    "href": "KunruiWang-Takehome.html",
+    "title": "Take Home Exercise 1",
+    "section": "",
+    "text": "Create Age-Sex Pyramid visualisation to support analysis of demographic distribution across Planning Areas. A Trellis display should be used to display nine selected planning areas within one view. Yay test (Time to Test) ## Key Analysis\n\nIn June 2022, there are 4.08 million Singapore residents living in 41 Planning Areas.\nThe gender distribution is approx 51% (female), 49% (male). 19.3% of the city’s residents are aged below 20, whilst 31.1% of its residents are aged 55 and above.\nPlanning Areas (PA) Bedok, Tampines, Jurong West, Sengkang and Woodlands have the highest number of residents. Each PA houses at least 250,000 people.\nConversely, if the analysis is narrowed to focus on residents aged 60 and above, we observe that the most populated areas for this group is Bedok, Tampines, Hougang, Jurong West, Ang Mo Kio.\nThe table below shows the difference in Age-Sex distribution between the 5 most populous Planning Areas amongst residents aged 60 and above. \nBy visual analysis, we observe that some areas (i.e Tampines, Hougang) have a lesser proportion of adults aged between 35 to 55 living in these Planning Areas.\nThis is juxtaposed against areas like Bedok and Jurong West, where the area population appears to be supported by adults aged between 25 to 65.\nAng Mo Kio, unlike the other areas, appears to be “bottom-heavy”, indicating a stronger proportion of elderlies living in the area. Based on the data available, we know that most of these elderlies are living in 3-room and 4-room HDB flat. We can hypothesize that some of these elderlies may be living alone and may require societial support."
+  },
+  {
+    "objectID": "KunruiWang-Takehome.html#and-heres-a-step-by-step-guide-on-how-to-create-this-age-sex-pyramid",
+    "href": "KunruiWang-Takehome.html#and-heres-a-step-by-step-guide-on-how-to-create-this-age-sex-pyramid",
+    "title": "Take Home Exercise 1",
+    "section": "And here’s a step-by-step guide on how to create this Age-Sex Pyramid!",
+    "text": "And here’s a step-by-step guide on how to create this Age-Sex Pyramid!"
+  },
+  {
+    "objectID": "KunruiWang-Takehome.html#data-extraction",
+    "href": "KunruiWang-Takehome.html#data-extraction",
+    "title": "Take Home Exercise 1",
+    "section": "Data Extraction",
+    "text": "Data Extraction\nData was obtained from Department of Statistics, Singapore (SingStat) data on Population trend - available here.\n\nUnder the section on Population Trends, search for “Singapore Residents by Planning Area / Subzone, Age Group, Sex and Type of Dwelling”\nThere are multiple versions representing different time horizons or snapshot dates to choose from.\nFor the purpose of this exercise, snapshot data of June 2022 was used."
+  },
+  {
+    "objectID": "KunruiWang-Takehome.html#step-by-step-description",
+    "href": "KunruiWang-Takehome.html#step-by-step-description",
+    "title": "Take Home Exercise 1",
+    "section": "Step-by-Step Description",
+    "text": "Step-by-Step Description\n\nCleaning the data\n\n\n\n\n\n\n\n\n\n\n\nNo.\nDescription\nImage\n\n\n\n\n1.\nLoad the .csv file into Tableau Desktop.\n\n\n\n2.\nEnsure that data is in the correct format.\nPlanning Area (PA) should be geographically tagged, whilst Population (Pop) should be a calculated value.\nNote: Geographically tagging the PA will allow further analysis via map plots.\n\n\n\n\n3.\nFilter away Null values by using Filters button on the top Right-Hand corner.\nFilters (Add) > “Add...” > Select field “Pop” > Under “At least” tab > Enter “1”\n\n\n\n\n\nYou’re now ready to create your Tableau charts!\n\n\nCreating the worksheet\n\n\n\n\n\n\n\n\n\n\n\nNo.\nDescription\nImage\n\n\n\n\n1.\nCreate calculated fields to represent division of male and female population.\nAnalysis > Create Calculated Field… >\nCreate field “Female” with the following code\nIF [Sex] = “Females” THEN [Pop] END\n\n\n\n2.\nLikewise, do the same for “Male”\n\n\n\n3.\nDrag and drop the fields “Sex” and “Pop”, representing Gender and Number of residents resepectively, under Columns.\nDrag and drog the fields “PA” and “AG”, representing Planning Area and Age Group respectively, under Rows.\n\n\n\n\n4.\nIn a Age-Sex Pyramid, we want to distribution of gender to be differentiated by colour.\nDrag the variable “Sex” under Colour to create this differentiation.\n\n\n\n5.\nSelect “Bar” under chart type.\n\n\n\n6.\nTo create a pyramid, right-click on the left column (either “Male” or “Female”) in the X-axis and choose to\n“Edit Axis..”> General > Scale > Reversed\n\n\n\n7.\nCreate a filter for Planning Area by dragging the field “PA” under filters.\nSelect General > Select from list\nThen, Right click to show filter\n\n\n\n8.\nCheck that the age groups are chronologically distribution, rename the title, rows, columns (where applicable).\n\nOptional: If you wish to view Planning Areas by columns instead of by rows, be sure to drag the PA variable to columns instead!\n\n\n\n9.\nCreate a dashboard and drag your sheet into the dashboard.\n\n\n\n1.\nCreate calculated fields to represent division of male and female population.\nAnalysis > Create Calculated Field… >\nCreate field “Female” with the following code\nIF [Sex] = “Females” THEN [Pop] END\n\n\n\n\n\nViola! You have your dashboard!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "VAA",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "KunruiWang-Takehome4.html",
+    "href": "KunruiWang-Takehome4.html",
+    "title": "Singapore Trade Balance - How Covid-19 has affected the landscape",
+    "section": "",
+    "text": "Overview\nThe goal of this assignment is to uncover how changes in the global economical and political dynamics, in lieu of COVID-19, has impacted Singapore’s bilateral trade. For the purpose of this study, we used the data “Merchandise Trade by Region/Market” from Department of Statistics, available here\n\n\nData Wrangling\nThe following steps were required for Data Wrangling;\n\nNarrow the scope of study to Covid-related period: 2020 to 2022, plus 2019 for comparison purpose\nAlign the trade value to be based in “Million Dollars” for simple comparison\nCreate a separate document with merged values (by Trade Partner) in Import and Export\n\n\n\nAnimated overview of top trading partners\nThe animated chart below provides a quick overview of the top and bottom 10 Net Export Trade Partners with Singapore between 2019 to 2022.\nQuick Fact:\n“A nation’s net exports are the value of its total exports minus the value of its total imports.” - Investopedia\nThe following steps were required for further Data Wrangling;\n\nCreated a calculated column for net exports\nRetain only the top 10 and bottom 10 net export partners\n\n\nKey observations from this table:\n\nSingapore’s top net trading partner is Hong Kong, and our bottom net trading partner in Taiwan. This remained consistent across the years pre- and post- pandemic (i.e. 2019 to 2022).\nWe observe changes in trade dynamics with the following partners during the pandemic:\n\nMainland China\nRepublic of Korea\nUnited States\n\n\n\n\n\n\n\n\n\n\nComprehensive view of volume between 2020 - 2022, by trading partner\nThe trellis plot below provides details of trade volume between Singapore and Individual top and bottom Net Export Trade Partners, This chart is powerful as it enables us to view trends - across time - in a singular view. The mouse-over (hover) function also provides users with details on exact value transacted.\nThe following steps were required for further Data Wrangling;\n\nPivot_longer on earlier dataframes to create columns for Dates and Trade Type (Import or Export)\nData wrangling on date format using stringr package\nEnsure that variable to identify country (Data Series in this project) is a factor which can be identified for trellis plot\n\n\nKey observations from this table:\n\nOur top trading partners are:\n\nHong Kong\nTaiwan\nUnited States\nIndonesia\n\nMonthly trade (either Import or Export) exceeding the value of SGD 2B is observed to be higher than other trading partners.\nExports to several countries (Indonesia, Taiwan) increased gradually during the pandemic. For example, exports to Indonesia grew steadily from 1.7B SGD in May-2020 to 5.3B SGD in July 2022.\nSoftening of trade between Singapore and its top partners (aside from Hong Kong) was observed, beginning Q3 last year."
+  },
+  {
+    "objectID": "Test.html",
+    "href": "Test.html",
+    "title": "Old Faithful",
+    "section": "",
+    "text": "Data on eruptions of the Old Faithful geyser in Yellowstone National Park, Wyoming, USA. The data was collected continuously from August 1st until August 15th, 1985.\n\n\n\nNumber of bins:\n\n\n\n\n\n\n\nThe data consists of 299 pairs of measurements, referring to the time interval between the starts of successive eruptions and the duration of the subsequent eruption.\nClick the Code button above to see the source code for this example."
+  }
+]
