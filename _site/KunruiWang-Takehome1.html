@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Wang Kunrui">
+<meta name="dcterms.date" content="2023-02-26">
 
 <title>VisualAnalytics - Take Home Exercise 1</title>
 <style>
@@ -118,7 +120,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-task" id="toc-the-task" class="nav-link active" data-scroll-target="#the-task">The Task</a></li>
+  <li><a href="#the-task" id="toc-the-task" class="nav-link active" data-scroll-target="#the-task">The Task</a>
+  <ul class="collapse">
+  <li><a href="#key-analysis" id="toc-key-analysis" class="nav-link" data-scroll-target="#key-analysis">Key Analysis</a></li>
+  </ul></li>
   <li><a href="#and-heres-a-step-by-step-guide-on-how-to-create-this-age-sex-pyramid" id="toc-and-heres-a-step-by-step-guide-on-how-to-create-this-age-sex-pyramid" class="nav-link" data-scroll-target="#and-heres-a-step-by-step-guide-on-how-to-create-this-age-sex-pyramid">And here’s a step-by-step guide on how to create this Age-Sex Pyramid!</a></li>
   <li><a href="#data-extraction" id="toc-data-extraction" class="nav-link" data-scroll-target="#data-extraction">Data Extraction</a></li>
   <li><a href="#step-by-step-description" id="toc-step-by-step-description" class="nav-link" data-scroll-target="#step-by-step-description">Step-by-Step Description</a></li>
@@ -135,10 +140,29 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    Wang Kunrui 
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            School of Computing and Information Systems,<br>Singapore Management University
+          </p>
+      </div>
+    </div>
 
 <div class="quarto-title-meta">
 
-    
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 26, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -148,7 +172,9 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="the-task" class="level2">
 <h2 class="anchored" data-anchor-id="the-task">The Task</h2>
-<p>Create Age-Sex Pyramid visualisation to support analysis of demographic distribution across Planning Areas. A Trellis display should be used to display nine selected planning areas within one view. Yay test (Time to Test) ## Key Analysis</p>
+<p>Create Age-Sex Pyramid visualisation to support analysis of demographic distribution across Planning Areas. A Trellis display should be used to display nine selected planning areas within one view.</p>
+<section id="key-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="key-analysis">Key Analysis</h3>
 <ul>
 <li>In June 2022, there are 4.08 million Singapore residents living in 41 Planning Areas.</li>
 <li>The gender distribution is approx 51% (female), 49% (male). 19.3% of the city’s residents are aged below 20, whilst 31.1% of its residents are aged 55 and above.</li>
@@ -159,6 +185,7 @@ ul.task-list li input[type="checkbox"] {
 <li>This is juxtaposed against areas like Bedok and Jurong West, where the area population appears to be supported by adults aged between 25 to 65.</li>
 <li>Ang Mo Kio, unlike the other areas, appears to be “bottom-heavy”, indicating a stronger proportion of elderlies living in the area. Based on the data available, we know that most of these elderlies are living in 3-room and 4-room HDB flat. We can hypothesize that some of these elderlies may be living alone and may require societial support.</li>
 </ul>
+</section>
 </section>
 <section id="and-heres-a-step-by-step-guide-on-how-to-create-this-age-sex-pyramid" class="level2">
 <h2 class="anchored" data-anchor-id="and-heres-a-step-by-step-guide-on-how-to-create-this-age-sex-pyramid">And here’s a step-by-step guide on how to create this Age-Sex Pyramid!</h2>
@@ -201,9 +228,9 @@ td {
 </style>
 <table class="table">
 <colgroup>
-<col style="width: 4%">
-<col style="width: 79%">
-<col style="width: 15%">
+<col style="width: 7%">
+<col style="width: 77%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -264,9 +291,9 @@ td {
 </style>
 <table class="table">
 <colgroup>
-<col style="width: 3%">
-<col style="width: 82%">
-<col style="width: 13%">
+<col style="width: 6%">
+<col style="width: 80%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -294,31 +321,31 @@ IF [Sex] = “Females” THEN [Pop] END</td>
 <td style="text-align: left;">Drag and drop the fields “Sex” and “Pop”, representing Gender and Number of residents resepectively, under Columns.<br>
 Drag and drog the fields “PA” and “AG”, representing Planning Area and Age Group respectively, under Rows.<br>
 </td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><img src="image/2.3.png" class="img-fluid"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4.</td>
 <td style="text-align: left;">In a Age-Sex Pyramid, we want to distribution of gender to be differentiated by colour.<br>
 Drag the variable “Sex” under Colour to create this differentiation.</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><img src="image/2.4.png" class="img-fluid"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">5.</td>
 <td style="text-align: left;">Select “Bar” under chart type.</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><img src="image/2.5.png" class="img-fluid"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">6.</td>
 <td style="text-align: left;">To create a pyramid, right-click on the left column (either “Male” or “Female”) in the X-axis and choose to<br>
 “Edit Axis..”&gt; General &gt; Scale &gt; Reversed</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><img src="image/2.6.png" class="img-fluid"></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">7.</td>
 <td style="text-align: left;">Create a filter for Planning Area by dragging the field “PA” under filters.<br>
 Select General &gt; Select from list<br>
 Then, Right click to show filter</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><img src="image/2.7.png" class="img-fluid"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">8.</td>
@@ -333,7 +360,7 @@ Optional: If you wish to view Planning Areas by columns instead of by rows, be s
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">1.</td>
+<td style="text-align: left;">10.</td>
 <td style="text-align: left;">Create calculated fields to represent division of male and female population.<br>
 Analysis &gt; Create Calculated Field… &gt;<br>
 Create field “Female” with the following code<br>
@@ -342,6 +369,7 @@ IF [Sex] = “Females” THEN [Pop] END</td>
 </tr>
 </tbody>
 </table>
+<p><img src="image/Analysis1.png" class="img-fluid"></p>
 <h2 class="anchored">
 Viola! You have your dashboard!
 </h2>
