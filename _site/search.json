@@ -82,5 +82,19 @@
     "title": "Take Home Exercise 1",
     "section": "Step-by-Step Description",
     "text": "Step-by-Step Description\n\nCleaning the data\n\n\n\n\n\n\n\n\n\n\n\nNo.\nDescription\nImage\n\n\n\n\n1.\nLoad the .csv file into Tableau Desktop.\n\n\n\n2.\nEnsure that data is in the correct format.\nPlanning Area (PA) should be geographically tagged, whilst Population (Pop) should be a calculated value.\nNote: Geographically tagging the PA will allow further analysis via map plots.\n\n\n\n\n3.\nFilter away Null values by using Filters button on the top Right-Hand corner.\nFilters (Add) > “Add...” > Select field “Pop” > Under “At least” tab > Enter “1”\n\n\n\n\n\nYou’re now ready to create your Tableau charts!\n\n\nCreating the worksheet\n\n\n\n\n\n\n\n\n\n\n\nNo.\nDescription\nImage\n\n\n\n\n1.\nCreate calculated fields to represent division of male and female population.\nAnalysis > Create Calculated Field… >\nCreate field “Female” with the following code\nIF [Sex] = “Females” THEN [Pop] END\n\n\n\n2.\nLikewise, do the same for “Male”\n\n\n\n3.\nDrag and drop the fields “Sex” and “Pop”, representing Gender and Number of residents resepectively, under Columns.\nDrag and drog the fields “PA” and “AG”, representing Planning Area and Age Group respectively, under Rows.\n\n\n\n\n4.\nIn a Age-Sex Pyramid, we want to distribution of gender to be differentiated by colour.\nDrag the variable “Sex” under Colour to create this differentiation.\n\n\n\n5.\nSelect “Bar” under chart type.\n\n\n\n6.\nTo create a pyramid, right-click on the left column (either “Male” or “Female”) in the X-axis and choose to\n“Edit Axis..”> General > Scale > Reversed\n\n\n\n7.\nCreate a filter for Planning Area by dragging the field “PA” under filters.\nSelect General > Select from list\nThen, Right click to show filter\n\n\n\n8.\nCheck that the age groups are chronologically distribution, rename the title, rows, columns (where applicable).\n\nOptional: If you wish to view Planning Areas by columns instead of by rows, be sure to drag the PA variable to columns instead!\n\n\n\n9.\nCreate a dashboard and drag your sheet into the dashboard.\n\n\n\n10.\nCreate calculated fields to represent division of male and female population.\nAnalysis > Create Calculated Field… >\nCreate field “Female” with the following code\nIF [Sex] = “Females” THEN [Pop] END\n\n\n\n\n\n\nViola! You have your dashboard!"
+  },
+  {
+    "objectID": "KunruiWang-Takehome 3.html",
+    "href": "KunruiWang-Takehome 3.html",
+    "title": "Patterns of HDB Resale Prices by Residential Area in 2022",
+    "section": "",
+    "text": "HDB Prices are of interest to many Singaporeans; this document aims to provide insights on the difference in per square metre (PSM) rates for HDB sold in 2022."
+  },
+  {
+    "objectID": "KunruiWang-Takehome3.html",
+    "href": "KunruiWang-Takehome3.html",
+    "title": "Patterns of HDB Resale Prices by Residential Area in 2022",
+    "section": "",
+    "text": "HDB Prices are of interest to many Singaporeans; this document aims to provide insights on the difference in per square metre (PSM) rates for HDB sold in 2022."
   }
 ]

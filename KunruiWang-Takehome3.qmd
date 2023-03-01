@@ -1,0 +1,94 @@
+---
+title: "Patterns of HDB Resale Prices by Residential Area in 2022"
+subtitle: "Take Home Exercise 3"
+author: "Wang Kunrui"
+institute: "School of Computing and Information Systems,<br/>Singapore Management University"
+date: "2020-2-15"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+## Overview
+
+HDB Prices are of interest to many Singaporeans; this document aims to provide insights on the difference in per square metre (PSM) rates for HDB sold in 2022.
+
+# Data Wrangling
+
+Using tidyverse family of packages, the following data wrangling was conducted: 1. Retrieved identifier for Year of Transaction, as the project is only interested in 2022 transactions 2. Filter down the dataset to 3-, 4- and 5- room flat types 3. Create the various "PSM" to calculate the per square metre rate at which the property was transacted
+
+```{r echo = T, results = 'hide'}
+#| warning: false
+
+library(pacman)
+pacman::p_load(ggstatsplot, ggplot2, gapminder, ggside, knitr, tidyverse, broom, ggdist, gganimate, plotly, crosstalk, DT, hrbrthemes, viridis)
+resale <- read_csv("resale-flat-prices-2017.csv")
+resale <- transform(resale, yr= substr(month,1,4))
+resale <- resale %>% filter(
+  flat_type == "3 ROOM" | flat_type == "4 ROOM" | flat_type == "5 ROOM"
+)
+resale2022 <- resale %>% filter(
+  yr == "2022"
+  )
+resale2022 <- transform(resale2022,
+                        yrlease=(strtoi(substr(remaining_lease,1,2))))
+resale2022 <- transform(resale2022,psm=resale_price/floor_area_sqm)
+```
+
+# A quick overview
+
+In reaction to the rising resale prices post-covid, the government introduced property cooling measures on 30 September 2022.(See <a href="https://www.straitstimes.com/business/property/stricter-borrowing-criteria-for-property-buyers-15-month-wait-for-private-property-owners-moving-to-hdb-flats">this link</a> for details) The ruling imposed a 15 month waiting period for buyers who have sold their private home(s), before they are able to purchase a HDB flat. This is predominately expected to cool HDB resale demand.
+
+A time-series plot on number of HDB resale transaction will provide insights on the cooling measure's impact across all 3 HDB flat types: 3-room, 4-room and 5-room.
+
+```{r}
+
+monthly <- resale2022 %>% count(month,flat_type)
+p <- ggplot(monthly, aes(x=month, y=n, group=flat_type, color=flat_type, text=n)) +
+  geom_line() + geom_point()+
+  scale_color_viridis(discrete=TRUE) +
+  theme(axis.text.x = element_text(angle=90))+
+  ylab("Number of Transactions") 
+ggplotly(p)
+
+```
+
+An immediate reaction is seen in the months of September and October; probably as buyers rushed to close deals ahead of implementation of rules. What is interesting - is the aftermath; In November and December, it appears that demand for 3- and 4- room HDB flat types are recovering back to Aug'22 levels.
+
+More data points and future analysis will enrich this analysis; and help the public to understand the impact of these cooling measures.
+
+# Deeper Analysis
+
+Next, we seek to understand the difference purchase prices across HDB towns. Using ggplotly, an interactive boxplot was created; Users can hover across the box plot to observe the calculated transaction spread, including its various quartiles
+
+```{r echo = T}
+#| warning: false
+  
+p <- ggplot(data=resale2022, aes(x=town, y=psm, fill=flat_type)) +
+     geom_boxplot(width=0.1, alpha=0.2) +
+     scale_fill_viridis(discrete = TRUE) +
+     theme(axis.text.x = element_text(angle=90,size=8),
+       plot.title = element_text(size=11))+
+     ggtitle("Property price by sqm") +
+   xlab ("TOWN")+ylab("SGD PER SQM")
+ 
+ 
+ggplotly(p)
+```
+
+# Takeaways
+
+Key observations are:
+
+1.  Properties closer to Central region (e.g. Central Area, Bukit Merah, Queenstown, Kallang Whampoa, Toa Payoh) are sold at higher prices per sqm.
+
+2.  In these same areas, we can observe a wider spread of prices per sqm, as demands for this area provide sellers more room for negotiation. The variance intra-town may be due to qualitative factors, including view from the home, complaints from neighbours, proximity to schools, etc.
+
+3.  Interesting, we observe that some 5-room flats in area like Punggol and Sembawang are sold at lower prices per sqm as compared to 3- or 4- room flats in the same town. This may affected by factors such as remaining lease.
