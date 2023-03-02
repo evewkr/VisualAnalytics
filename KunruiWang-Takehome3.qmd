@@ -24,7 +24,7 @@ HDB Prices are of interest to many Singaporeans; this document aims to provide i
 
 Using tidyverse family of packages, the following data wrangling was conducted: 1. Retrieved identifier for Year of Transaction, as the project is only interested in 2022 transactions 2. Filter down the dataset to 3-, 4- and 5- room flat types 3. Create the various "PSM" to calculate the per square metre rate at which the property was transacted
 
-```{r echo = T, results = 'hide'}
+```{r, include=FALSE}
 #| warning: false
 
 library(pacman)
@@ -68,7 +68,7 @@ More data points and future analysis will enrich this analysis; and help the pub
 
 Next, we seek to understand the difference purchase prices across HDB towns. Using ggplotly, an interactive boxplot was created; Users can hover across the box plot to observe the calculated transaction spread, including its various quartiles
 
-```{r echo = T}
+```{r echo=FALSE}
 #| warning: false
   
 p <- ggplot(data=resale2022, aes(x=town, y=psm, fill=flat_type)) +
