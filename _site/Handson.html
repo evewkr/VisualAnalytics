@@ -166,22 +166,39 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="hands-on-8---network-data" class="level2">
 <h2 class="anchored" data-anchor-id="hands-on-8---network-data">Hands-on 8 - Network Data</h2>
-<section id="download-data" class="level4">
-<h4 class="anchored" data-anchor-id="download-data">Download Data:</h4>
-</section>
-<section id="data-wrangling" class="level4">
-<h4 class="anchored" data-anchor-id="data-wrangling">Data Wrangling:</h4>
+<section id="overview-of-our-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="overview-of-our-dataset"><strong>Overview of our Dataset</strong></h4>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: There was 1 warning in `mutate()`.
-ℹ In argument: `SendDate = dmy(SentDate)`.
-Caused by warning:
-! All formats failed to parse. No formats found.</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Edges:"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 9,063
+Columns: 8
+$ source      &lt;dbl&gt; 43, 43, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 26, 26, 26…
+$ target      &lt;dbl&gt; 41, 40, 51, 52, 53, 45, 44, 46, 48, 49, 47, 54, 27, 28, 29…
+$ SentDate    &lt;chr&gt; "6/1/2014", "6/1/2014", "6/1/2014", "6/1/2014", "6/1/2014"…
+$ SentTime    &lt;time&gt; 08:39:00, 08:39:00, 08:58:00, 08:58:00, 08:58:00, 08:58:0…
+$ Subject     &lt;chr&gt; "GT-SeismicProcessorPro Bug Report", "GT-SeismicProcessorP…
+$ MainSubject &lt;chr&gt; "Work related", "Work related", "Work related", "Work rela…
+$ sourceLabel &lt;chr&gt; "Sven.Flecha", "Sven.Flecha", "Kanon.Herrero", "Kanon.Herr…
+$ targetLabel &lt;chr&gt; "Isak.Baza", "Lucas.Alcazar", "Felix.Resumir", "Hideki.Coc…</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Nodes:"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 54
+Columns: 4
+$ id         &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 44, 45, 46, 8, 9, 10, 11, 12, 13, 14, …
+$ label      &lt;chr&gt; "Mat.Bramar", "Anda.Ribera", "Rachel.Pantanal", "Linda.Lago…
+$ Department &lt;chr&gt; "Administration", "Administration", "Administration", "Admi…
+$ Title      &lt;chr&gt; "Assistant to CEO", "Assistant to CFO", "Assistant to CIO",…</code></pre>
 </div>
 </div>
 </section>
-<section id="simple-plotting" class="level4">
-<h4 class="anchored" data-anchor-id="simple-plotting">Simple Plotting:</h4>
+<section id="data-wrangling-basic-plot" class="level4">
+<h4 class="anchored" data-anchor-id="data-wrangling-basic-plot">Data Wrangling &amp; Basic Plot</h4>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tbl_graph: 54 nodes and 1456 edges
@@ -207,15 +224,11 @@ Caused by warning:
 3     3 Rachel.Pantanal Administration Assistant to CIO
 # … with 51 more rows</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using the `size` aesthetic in this geom was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` in the `default_aes` field and elsewhere instead.</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="Handson_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Beautify it with the fun part - with a variety available.. nicking an image from Prof Kam below;</p>
+<p>&lt;section class=“wrapper”&gt; &lt;div class=“top”&gt;Sliced&lt;/div&gt; &lt;div class=“bottom” aria-hidden=“true”&gt;Sliced&lt;/div&gt; &lt;/section&gt;</p>
 <p><img src="https://isss608-ay2022-23jan.netlify.app/hands-on_ex/hands-on_ex08/img/image9-4.jpg" class="img-fluid"></p>
 <div class="cell">
 <div class="cell-output-display">
