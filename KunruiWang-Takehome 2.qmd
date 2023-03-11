@@ -12,7 +12,7 @@ This document critiques a classmate's submission of Take Home Exercise 1 - which
 
 The image below is the plot submitted by a classmate; it presents the demographic structure of Singapore's top 9 population planning area.
 
-<img src="Dashboard.png"/>
+![](Dashboard.png)
 
 1.  Labeling of X and Y axis are clear
 2.  There is clear labeling of each planning area
