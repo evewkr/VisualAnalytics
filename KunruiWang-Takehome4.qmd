@@ -80,7 +80,7 @@ Chart1 <- Chart1 %>%
 
 ```
 
-```{r}
+```{r, include=FALSE}
 topExport <- head(Chart1 %>%
   select ("Data Series"|"FY19.Export") %>%
   arrange(desc(FY19.Export)),
