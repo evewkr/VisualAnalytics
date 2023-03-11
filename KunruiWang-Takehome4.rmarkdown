@@ -17,7 +17,6 @@ output:
 ---
 
 
-
 # Overview
 
 The goal of this assignment is to uncover how changes in the global economical and political dynamics, in lieu of COVID-19, has impacted Singapore's bilateral trade. For the purpose of this study, we used the data "Merchandise Trade by Region/Market" from Department of Statistics, available [here](https://www.singstat.gov.sg/find-data/search-by-theme/trade-and-investment/merchandise-trade/latest-data)
@@ -31,7 +30,6 @@ The following steps were required for Data Wrangling;
 2.  Align the trade value to be based in "Million Dollars" for simple comparison
 
 3.  Create a separate document with merged values (by Trade Partner) in Import and Export
-
 
 
 ```{r, include=FALSE}
@@ -98,7 +96,6 @@ top<-unique(top)
 ```
 
 
-
 # Animated overview of top trading partners
 
 The animated chart below provides a quick overview of the top and bottom 10 Net Export Trade Partners with Singapore between 2019 to 2022.
@@ -124,7 +121,6 @@ The following steps were required for further Data Wrangling;
     -   Republic of Korea
 
     -   United States
-
 
 
 ```{r, include=FALSE}
@@ -165,7 +161,6 @@ anim
 ```
 
 
-
 # Comprehensive view of volume between 2020 - 2022, by trading partner
 
 The trellis plot below provides details of trade volume between Singapore and Individual top and bottom Net Export Trade Partners, This chart is powerful as it enables us to view trends - across time - in a singular view. The mouse-over (hover) function also provides users with details on exact value transacted.
@@ -195,7 +190,6 @@ The following steps were required for further Data Wrangling;
 -   Exports to several countries (Indonesia, Taiwan) increased gradually during the pandemic. For example, exports to Indonesia grew steadily from 1.7B SGD in May-2020 to 5.3B SGD in July 2022.
 
 -   Softening of trade between Singapore and its top partners (aside from Hong Kong) was observed, beginning Q3 last year.
-
 
 
 ```{r, include=FALSE}

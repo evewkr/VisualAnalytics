@@ -96,5 +96,19 @@
     "title": "Patterns of HDB Resale Prices by Residential Area in 2022",
     "section": "",
     "text": "HDB Prices are of interest to many Singaporeans; this document aims to provide insights on the difference in per square metre (PSM) rates for HDB sold in 2022."
+  },
+  {
+    "objectID": "KunruiWang-Takehome 2.html",
+    "href": "KunruiWang-Takehome 2.html",
+    "title": "Take Home Exercise 2",
+    "section": "",
+    "text": "This document critiques a classmate’s submission of Take Home Exercise 1 - which aims to produce an age-sex pyramid to analyse demographic structure of Singapore by planning area level."
+  },
+  {
+    "objectID": "KunruiWang-Takehome 2.html#visualization-remake",
+    "href": "KunruiWang-Takehome 2.html#visualization-remake",
+    "title": "Take Home Exercise 2",
+    "section": "Visualization Remake",
+    "text": "Visualization Remake\nUsing ggplot2, a remake of the submitted visualisation is done"
   }
 ]

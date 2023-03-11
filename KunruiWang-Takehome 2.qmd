@@ -1,0 +1,65 @@
+---
+title: "Take Home Exercise 2"
+subtitle: "Peer critique and visualization remake of take-home exercise 1"
+format: html
+---
+
+## Overview
+
+This document critiques a classmate's submission of Take Home Exercise 1 - which aims to produce an age-sex pyramid to analyse demographic structure of Singapore by planning area level.
+
+# Critique
+
+The image below is the plot submitted by a classmate; it presents the demographic structure of Singapore's top 9 population planning area.
+
+<img src="Dashboard.png"/>
+
+1.  Labeling of X and Y axis are clear
+2.  There is clear labeling of each planning area
+3.  The sequence of age are in running order
+4.  However, there is opportunity for improvement by population size (i.e. the most populated region in top left hand corner and least populated region in bottom right hand corner)
+
+We will attempt to incorporate this improvement in our ggplot.
+
+# Data Wrangling
+
+Using dplyr, some data wrangling is done to select the top 9 planning areas by population size
+
+```{r, include=FALSE}
+#| warning: false
+
+library(dplyr)
+library(tidyr)
+popdata <- read.csv(file = 'respopagesextod2022.csv')
+top9 <- popdata %>%
+  group_by(PA) %>%
+  summarize (sum_Pop = sum(Pop)) %>%
+  top_n(9,sum_Pop)
+newpop<-popdata %>%
+  group_by(PA,AG,Sex) %>%
+  summarize (sum_Pop = sum(Pop)) %>%
+  filter(PA %in% top9$PA)
+newpop1<-newpop %>%
+  pivot_wider(names_from = Sex,values_from= sum_Pop)
+```
+
+## Visualization Remake
+
+Using ggplot2, a remake of the submitted visualisation is done
+
+```{r echo=FALSE}
+#| warning: false
+
+library(ggplot2)
+newpop1$PA <- factor(newpop1$PA, levels=sort(unique(newpop1$PA),decreasing = TRUE))
+ggplot(newpop1, aes(x = AG, y = Males, fill = "Male")) +
+  geom_bar(stat = "identity", position = "identity") +
+  geom_bar(aes(x = AG, y = -Females, fill = "Females"),
+           stat = "identity", position = "identity") +
+  scale_fill_manual(values = c("Male" = "blue", "Females" = "red")) +
+  coord_flip() +
+  labs(x = NULL, y = "sum_Pop") +
+  ggtitle("Demographic structure of Singapore at top 9 population planning area in June 2022") +
+  geom_point()+
+  facet_wrap(~PA, ncol=3) 
+```
