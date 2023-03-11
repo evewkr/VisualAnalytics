@@ -13,7 +13,7 @@ website:
         text: Exercise 3
       - href: KunruiWang-Takehome4.qmd
         text: Exercise 4
-      - href: KunruiWang-Handson.qmd
+      - href: Handson.qmd
         text: Hands-on Exercise
       - href: index.qmd
         text: Return Home
