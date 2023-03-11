@@ -1,0 +1,81 @@
+---
+title: "Hands-on Exercise"
+subtitle: "Weekly In-class work"
+author: "Wang Kunrui"
+institute: "School of Computing and Information Systems,<br/>Singapore Management University"
+date: "2023-3-11"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
+---
+
+## Hands-on 8 - Network Data
+
+Download Data:
+
+```{r echo=FALSE}
+pacman::p_load(igraph, tidygraph, ggraph, 
+               visNetwork, lubridate, clock,
+               tidyverse, graphlayouts)
+GAStech_nodes <- read_csv("8-data/GAStech_email_node.csv")
+GAStech_edges <- read_csv("8-data/GAStech_email_edge-v2.csv")
+glimpse(GAStech_edges)
+```
+
+Data Wrangling:
+
+```{r echo=FALSE}
+GAStech_edges$SentDate  = dmy(GAStech_edges$SentDate)
+GAStech_edges$Weekday = wday(GAStech_edges$SentDate, 
+                             label = TRUE, 
+                             abbr = FALSE)
+GAStech_edges <- GAStech_edges %>%
+  mutate(SendDate = dmy(SentDate)) %>%
+  mutate(Weekday = wday(SentDate,
+                        label = TRUE,
+                        abbr = FALSE))
+GAStech_edges_aggregated <- GAStech_edges %>%
+  filter(MainSubject == "Work related") %>%
+  group_by(source, target, Weekday) %>%
+    summarise(Weight = n()) %>%
+  filter(source!=target) %>%
+  filter(Weight > 1) %>%
+  ungroup()
+```
+
+Simple Plotting:
+
+```{r echo=TRUE, eval=TRUE}
+GAStech_graph <- tbl_graph(nodes = GAStech_nodes,
+                           edges = GAStech_edges_aggregated, 
+                           directed = TRUE)
+
+GAStech_graph %>%
+  activate(edges) %>%
+  arrange(desc(Weight))
+
+ggraph(GAStech_graph) +
+  geom_edge_link() +
+  geom_node_point()
+```
+
+Beautify it with the fun part - with a variety available.. nicking an image from Prof Kam below;
+
+![](https://isss608-ay2022-23jan.netlify.app/hands-on_ex/hands-on_ex08/img/image9-4.jpg)
+
+```{r echo=TRUE, eval=TRUE}
+g <- ggraph(GAStech_graph, layout="nicely") + 
+  geom_edge_link(aes(colour = 'grey40')) +
+  geom_node_point(aes(colour = Department, size=3))
+g + theme_graph(background = 'grey10',
+                text_colour = 'white')
+
+g + theme_graph()
+```
