@@ -4,7 +4,7 @@ subtitle: "Peer critique and visualization remake of take-home exercise 1"
 format: html
 ---
 
-## Overview
+# Overview
 
 This document critiques a classmate's submission of Take Home Exercise 1 - which aims to produce an age-sex pyramid to analyse demographic structure of Singapore by planning area level.
 
