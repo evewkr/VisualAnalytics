@@ -1,3 +1,17 @@
 ---
-title: "VisualAnalytics"
+title: "Visual Analytics"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "css/text.css"]
+    lib_dir: libs
+    nature:
+      ratio: "16:9"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "js/macros.js"
 ---
+
+# About This Course
+
+Visual Analytics
