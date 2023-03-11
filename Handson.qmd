@@ -18,9 +18,9 @@ output:
 
 ## Hands-on 8 - Network Data
 
-Download Data:
+#### Download Data:
 
-```{r echo=FALSE}
+```{r, include=FALSE}
 pacman::p_load(igraph, tidygraph, ggraph, 
                visNetwork, lubridate, clock,
                tidyverse, graphlayouts)
@@ -29,9 +29,9 @@ GAStech_edges <- read_csv("8-data/GAStech_email_edge-v2.csv")
 glimpse(GAStech_edges)
 ```
 
-Data Wrangling:
+#### Data Wrangling:
 
-```{r echo=FALSE}
+```{r, message=FALSE, echo=FALSE}
 GAStech_edges$SentDate  = dmy(GAStech_edges$SentDate)
 GAStech_edges$Weekday = wday(GAStech_edges$SentDate, 
                              label = TRUE, 
@@ -50,9 +50,9 @@ GAStech_edges_aggregated <- GAStech_edges %>%
   ungroup()
 ```
 
-Simple Plotting:
+#### Simple Plotting:
 
-```{r echo=TRUE, eval=TRUE}
+```{r, message=FALSE, echo=FALSE}
 GAStech_graph <- tbl_graph(nodes = GAStech_nodes,
                            edges = GAStech_edges_aggregated, 
                            directed = TRUE)
@@ -70,7 +70,7 @@ Beautify it with the fun part - with a variety available.. nicking an image from
 
 ![](https://isss608-ay2022-23jan.netlify.app/hands-on_ex/hands-on_ex08/img/image9-4.jpg)
 
-```{r echo=TRUE, eval=TRUE}
+```{r, message=FALSE, echo=FALSE}
 g <- ggraph(GAStech_graph, layout="nicely") + 
   geom_edge_link(aes(colour = 'grey40')) +
   geom_node_point(aes(colour = Department, size=3))
