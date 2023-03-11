@@ -76,6 +76,21 @@ Chart1 <- Chart1 %>%
 
 Chart1 <- Chart1 %>%
   filter(!`Data Series` %in% c("Asia ()","America ()","European Union ()","Africa ()","Oceania ()","Other Countries In Oceania ()","Europe ()"))
+
+
+```
+
+```{r}
+topExport <- head(Chart1 %>%
+  select ("Data Series"|"FY19.Export") %>%
+  arrange(desc(FY19.Export)),
+  10)
+topImport <- head(Chart1 %>%
+  select ("Data Series"|"FY19.Import") %>%
+  arrange(desc(FY19.Import)),
+  10)
+top<-c(topExport$`Data Series`,topImport$`Data Series`)
+top<-unique(top)
 ```
 
 # Animated overview of top trading partners
