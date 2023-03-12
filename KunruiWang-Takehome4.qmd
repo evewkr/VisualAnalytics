@@ -80,7 +80,13 @@ Chart1 <- Chart1 %>%
 
 ```
 
-```{r, include=FALSE}
+# Animated overview of top trading partners
+
+For the scope of this study, we want to observe any changes in trade dynamic between Singapore and its Top 10 Export Partners pre-covid (i.e. in 2019) and Top 10 Import Partners.
+
+Singapore's Top Export Partners in 2019 are:
+
+```{r, echo=FALSE}
 topExport <- head(Chart1 %>%
   select ("Data Series"|"FY19.Export") %>%
   arrange(desc(FY19.Export)),
@@ -91,21 +97,26 @@ topImport <- head(Chart1 %>%
   10)
 top<-c(topExport$`Data Series`,topImport$`Data Series`)
 top<-unique(top)
+print ((topExport$`Data Series`))
 ```
 
-# Animated overview of top trading partners
+Singapore's Top Import Partners in 2019 are:
 
-The animated chart below provides a quick overview of the top and bottom 10 Net Export Trade Partners with Singapore between 2019 to 2022.
+```{r, echo=FALSE}
+print ((topImport$`Data Series`))
+```
 
 Quick Fact:
 
 "A nation's net exports are the value of its total exports minus the value of its total imports." - Investopedia
 
+Chart 1 below showcase the Net Export for shortlisted partners above.
+
 The following steps were required for further Data Wrangling;
 
-1.  Created a calculated column for net exports
+1.  Created a calculated column for Net Export
 
-2.  Retain only the top 10 and bottom 10 net export partners
+2.  Retain only the Top 10 Import Partners and Top Export Partners
 
 ### Key observations from this table:
 
